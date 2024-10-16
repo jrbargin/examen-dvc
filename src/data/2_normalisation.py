@@ -1,5 +1,3 @@
-#!/home/ubuntu/examen-dvc/venv/bin/python
-
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
