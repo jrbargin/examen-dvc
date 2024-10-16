@@ -3,8 +3,8 @@ from sklearn.linear_model import Ridge
 from sklearn.model_selection import GridSearchCV
 import joblib
 
-X_train = pd.read_csv('data/processed/X_train_scaled.csv')
-y_train = pd.read_csv('data/processed/y_train.csv')
+X_train = pd.read_csv('/home/ubuntu/exam_dvc/examen-dvc/data/processed/X_train_scaled.csv')
+y_train = pd.read_csv('/home/ubuntu/exam_dvc/examen-dvc/data/processed/y_train.csv')
 
 model = Ridge()
 param_grid = {
@@ -15,4 +15,4 @@ param_grid = {
 grid_search = GridSearchCV(model, param_grid, cv=5, scoring='r2')
 grid_search.fit(X_train, y_train.values.ravel())
 
-joblib.dump(grid_search.best_params_, 'models/best_params.pkl')
+joblib.dump(grid_search.best_params_, '/home/ubuntu/exam_dvc/examen-dvc/models/best_params.pkl')
