@@ -15,4 +15,4 @@ param_grid = {
 grid_search = GridSearchCV(model, param_grid, cv=5, scoring='r2')
 grid_search.fit(X_train, y_train.values.ravel())
 
-joblib.dump(grid_search.best_params_, 'src/models/best_params.pkl')
+joblib.dump(grid_search.best_params_, 'models/best_params.pkl')

@@ -6,7 +6,7 @@ import json
 
 X_test = pd.read_csv('data/processed/X_test_scaled.csv')
 y_test = pd.read_csv('data/processed/y_test.csv')
-model = joblib.load('src/models/model.pkl')
+model = joblib.load('models/model.pkl')
 
 y_pred = model.predict(X_test)
 

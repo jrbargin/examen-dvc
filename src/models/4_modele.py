@@ -9,4 +9,4 @@ best_params = joblib.load('src/models/best_params.pkl')
 model = Ridge(**best_params)
 model.fit(X_train, y_train.values.ravel())
 
-joblib.dump(model, 'src/models/model.pkl')
+joblib.dump(model, 'models/best_params.pkl')
