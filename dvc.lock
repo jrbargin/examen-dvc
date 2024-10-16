@@ -1,0 +1,87 @@
+schema: '2.0'
+stages:
+  split:
+    cmd: python src/data/1_train_test_split.py
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: dfa899a0a65068095baf3c081a02eb8f.dir
+      size: 333781
+      nfiles: 2
+    - path: src/data/1_train_test_split.py
+      hash: md5
+      md5: b8bca62414a88402c6aef24f6ce92ba7
+      size: 763
+    outs:
+    - path: data/processed
+      hash: md5
+      md5: 98c1f08a2d07a6439970a35ac967be92.dir
+      size: 294499
+      nfiles: 4
+  normalisation:
+    cmd: python src/data/2_normalisation.py
+    deps:
+    - path: data/processed/
+      hash: md5
+      md5: 98c1f08a2d07a6439970a35ac967be92.dir
+      size: 294499
+      nfiles: 4
+    - path: src/data/2_normalisation.py
+      hash: md5
+      md5: 1418e8513c3972dfe97f3a002570d97d
+      size: 731
+    outs:
+    - path: data/normalised/
+      hash: md5
+      md5: 8722aa5c515eba7c6fa28f390621b13d.dir
+      size: 284523
+      nfiles: 2
+  gridsearch_modele:
+    cmd: python src/models/3_gridsearch_modele.py
+    deps:
+    - path: data/normalised/
+      hash: md5
+      md5: 8722aa5c515eba7c6fa28f390621b13d.dir
+      size: 284523
+      nfiles: 2
+    - path: src/models/3_gridsearch_modele.py
+      hash: md5
+      md5: 4c144a5b1b36342e7a69924824ec5478
+      size: 624
+    outs:
+    - path: models/best_params.pkl
+      hash: md5
+      md5: 59b3243070d107b56273a39de3890b0b
+      size: 48
+  modele:
+    cmd: python src/models/4_modele.py
+    deps:
+    - path: models/best_params.pkl
+      hash: md5
+      md5: 59b3243070d107b56273a39de3890b0b
+      size: 48
+    - path: src/models/4_modele.py
+      hash: md5
+      md5: f86131c59e356b6e31c69fe28fd256d8
+      size: 482
+    outs:
+    - path: models/model.pkl
+      hash: md5
+      md5: c621912b35cbb8d5d32c4cdd09143a38
+      size: 1043
+  evaluation:
+    cmd: python src/models/5_evaluation.py
+    deps:
+    - path: models/model.pkl
+      hash: md5
+      md5: c621912b35cbb8d5d32c4cdd09143a38
+      size: 1043
+    - path: src/models/5_evaluation.py
+      hash: md5
+      md5: 7c4ae9a7c34109cb82f57b0842057937
+      size: 717
+    outs:
+    - path: metrics/scores.json
+      hash: md5
+      md5: 65a7816a1438fe25f28ca129c39958e6
+      size: 54

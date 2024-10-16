@@ -4,7 +4,7 @@ import joblib
 import json
 
 
-X_test = pd.read_csv('/home/ubuntu/exam_dvc/examen-dvc/data/processed/X_test_scaled.csv')
+X_test = pd.read_csv('/home/ubuntu/exam_dvc/examen-dvc/data/normalised/X_test_scaled.csv')
 y_test = pd.read_csv('/home/ubuntu/exam_dvc/examen-dvc/data/processed/y_test.csv')
 model = joblib.load('/home/ubuntu/exam_dvc/examen-dvc/models/model.pkl')
 

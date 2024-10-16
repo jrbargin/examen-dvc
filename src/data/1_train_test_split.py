@@ -1,6 +1,8 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
+import os
 
+os.makedirs('/home/ubuntu/exam_dvc/examen-dvc/data/processed', exist_ok=True)
 
 df = pd.read_csv('/home/ubuntu/exam_dvc/examen-dvc/data/raw/raw.csv')
 X = df.drop(['date','silica_concentrate'],axis=1)

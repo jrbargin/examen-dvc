@@ -3,7 +3,7 @@ from sklearn.linear_model import Ridge
 from sklearn.model_selection import GridSearchCV
 import joblib
 
-X_train = pd.read_csv('/home/ubuntu/exam_dvc/examen-dvc/data/processed/X_train_scaled.csv')
+X_train = pd.read_csv('/home/ubuntu/exam_dvc/examen-dvc/data/normalised/X_train_scaled.csv')
 y_train = pd.read_csv('/home/ubuntu/exam_dvc/examen-dvc/data/processed/y_train.csv')
 
 model = Ridge()
