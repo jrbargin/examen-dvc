@@ -8,6 +8,10 @@ stages:
       md5: dfa899a0a65068095baf3c081a02eb8f.dir
       size: 333781
       nfiles: 2
+    - path: params.yaml
+      hash: md5
+      md5: e73dd964298ced635bf1ac6ac219518c
+      size: 148
     - path: src/data/1_train_test_split.py
       hash: md5
       md5: 103847b2ee32672a7ae391da39b14378
@@ -69,6 +73,10 @@ stages:
       hash: md5
       md5: a9cd9d91da89f732843d72548f64ded3
       size: 25951
+    - path: params.yaml
+      hash: md5
+      md5: e73dd964298ced635bf1ac6ac219518c
+      size: 148
     - path: src/models/3_gridsearch_modele.py
       hash: md5
       md5: 2ded3c015f5029f7633dd37824352cee
