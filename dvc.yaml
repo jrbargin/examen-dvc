@@ -4,6 +4,8 @@ stages:
     deps:
     - data/raw
     - src/data/1_train_test_split.py
+    params :
+    - split
     outs:
     - data/processed/X_test.csv
     - data/processed/X_train.csv
@@ -24,6 +26,8 @@ stages:
     - data/normalised/X_train_scaled.csv
     - data/processed/y_train.csv
     - src/models/3_gridsearch_modele.py
+    params :
+    - grid_search
     outs:
     - models/best_params.pkl
   modele:
